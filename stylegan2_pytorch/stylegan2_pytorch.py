@@ -627,7 +627,7 @@ class StyleGAN2(nn.Module):
         self.D = Discriminator(image_size, network_capacity, fq_layers = fq_layers, fq_dict_size = fq_dict_size, attn_layers = attn_layers, transparent = transparent, fmap_max = fmap_max)
 
         self.SE = StyleVectorizer(latent_dim, style_depth, lr_mul = lr_mlp)
-        self.GE = Generator(image_size, latent_dim, network_capacity, transparent = transparent, attn_layers = attn_layers, no_const = no_const)
+        self.GE = Generator(image_size, latent_dim, network_capacity, transparent = False, attn_layers = attn_layers, no_const = no_const)
 
         self.D_cl = None
 
