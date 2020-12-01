@@ -831,8 +831,8 @@ class Trainer():
             self.D_ddp = DDP(self.GAN.D, **ddp_kwargs)
             self.D_aug_ddp = DDP(self.GAN.D_aug, **ddp_kwargs)
 
-        if exists(self.logger):
-            self.logger.set_params(self.hparams)
+        #if exists(self.logger):
+        #    self.logger.set_params(self.hparams)
 
     def write_config(self):
         self.config_path.write_text(json.dumps(self.config()))
