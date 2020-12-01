@@ -46,7 +46,7 @@ except:
 
 import aim
 
-assert torch.cuda.is_available(), 'You need to have an Nvidia GPU with CUDA installed.'
+#assert torch.cuda.is_available(), 'You need to have an Nvidia GPU with CUDA installed.'
 
 num_cores = multiprocessing.cpu_count()
 
@@ -653,7 +653,8 @@ class StyleGAN2(nn.Module):
         self._init_weights()
         self.reset_parameter_averaging()
 
-        self.cuda(rank)
+        if torch.cuda.is_available():
+            self.cuda(rank)
 
         # startup apex mixed precision
         self.fp16 = fp16
